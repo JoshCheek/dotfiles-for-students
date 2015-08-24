@@ -2,7 +2,7 @@
 
 # Environment Variables
   export EDITOR='atom'                          # Set to your text editor
-  export PATH="/usr/local/bin:$HOME/bin:$PATH"  # Look for executables in homebrew first
+  export PATH="/usr/local/bin:$HOME/bin:$HOME/code/dotfiles/bin:$PATH"  # Look for executables in homebrew first
 
 # Load chruby
   source "/usr/local/share/chruby/chruby.sh"

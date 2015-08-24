@@ -1,6 +1,7 @@
 # various paths
 set --export PATH $HOME/bin          \
                   /usr/local/bin     \
+                  $HOME/code/dotfiles/bin \
                   $PATH              \
                   $HOME/.cabal/bin
 
@@ -17,6 +18,7 @@ end
 # Load ruby. Interface is less helpful than rbenv
 # but Brixen says it works with rbx in ways that rbenv's assumptions won't let it
 source /usr/local/share/chruby/chruby.fish
+chruby 2.2.2
 
 # Don't print a greeting when I start the shell
 set --erase fish_greeting
