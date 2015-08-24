@@ -1,6 +1,12 @@
+# This file goes in ~/.bash_profile (the tilde is your home directory)
+
 # Environment Variables
-  export EDITOR='vim'
-  export PATH="$HOME/bin:$PATH"
+  export EDITOR='atom'                          # Set to your text editor
+  export PATH="/usr/local/bin:$HOME/bin:$PATH"  # Look for executables in homebrew first
+
+# Load chruby
+  source "/usr/local/share/chruby/chruby.sh"
+  chruby 2.2.2 # Default
 
 # ALIASES
   # path
@@ -10,6 +16,7 @@
     alias  .....="cd ../../../.."
     alias ......="cd ../../../../.."
 
+    # NOTE: Delete this if you are using rvm
     # override cd b/c I always want to list dirs after I cd
     # note that this won't work with rvm b/c it overrides cd.
     cd() {
@@ -60,9 +67,6 @@
         kill -9 "%$job_num"
       done
     }
-
-  # generic
-    alias ss="python -m SimpleHTTPServer" # simple server (serves current dir on port 8000)
 
 
 # PROGRAMS (functions, binaries, aliases that behave like programs)
