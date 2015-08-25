@@ -1,9 +1,8 @@
 # various paths
-set --export PATH $HOME/bin          \
-                  /usr/local/bin     \
+set --export PATH $HOME/bin               \
                   $HOME/code/dotfiles/bin \
-                  $PATH              \
-                  $HOME/.cabal/bin
+                  /usr/local/bin          \
+                  $PATH
 
 # Rails cucumber integration looks for this env var to decide how to display output
 set --export CUCUMBER_FORMAT pretty
