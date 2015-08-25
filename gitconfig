@@ -19,8 +19,6 @@
 [core]
   excludesfile     = ~/.gitignore
   editor           = vim
-[merge]
-  conflictstyle    = diff3
 [status]
   submodulesummary = true
   relativePaths    = false
