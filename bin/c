@@ -1,4 +1,4 @@
-#!/usr/bin/env dotfiles_ruby
+#!/usr/bin/env ruby
 
 def range_to_indexes(range)
   return range.to_a if range.first <= range.last
