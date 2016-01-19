@@ -118,3 +118,35 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces() " strip trailing whitespace on save
+
+"" =====  Tell vim which files are Ruby files  =====
+" Stolen from: https://github.com/vim-ruby/vim-ruby/blob/72f8b21856bac46b7b1a19194f5a3aa1006346bb/ftdetect/ruby.vim
+function! s:setf(filetype) abort
+  if &filetype !=# a:filetype
+    let &filetype = a:filetype
+  endif
+endfunction
+au BufNewFile,BufRead *.rb,*.rbw,*.gemspec	        call s:setf('ruby')
+au BufNewFile,BufRead *.builder,*.rxml,*.rjs,*.ruby call s:setf('ruby')
+au BufNewFile,BufRead [rR]akefile,*.rake	          call s:setf('ruby')
+au BufNewFile,BufRead [rR]antfile,*.rant	          call s:setf('ruby')
+au BufNewFile,BufRead .irbrc,irbrc		              call s:setf('ruby')
+au BufNewFile,BufRead .pryrc			                  call s:setf('ruby')
+au BufNewFile,BufRead *.ru			                    call s:setf('ruby')
+au BufNewFile,BufRead Capfile,*.cap 		            call s:setf('ruby')
+au BufNewFile,BufRead Gemfile			                  call s:setf('ruby')
+au BufNewFile,BufRead Guardfile,.Guardfile	        call s:setf('ruby')
+au BufNewFile,BufRead Cheffile			                call s:setf('ruby')
+au BufNewFile,BufRead Berksfile			                call s:setf('ruby')
+au BufNewFile,BufRead [vV]agrantfile		            call s:setf('ruby')
+au BufNewFile,BufRead .autotest			                call s:setf('ruby')
+au BufNewFile,BufRead *.erb,*.rhtml		              call s:setf('eruby')
+au BufNewFile,BufRead [tT]horfile,*.thor	          call s:setf('ruby')
+au BufNewFile,BufRead *.rabl			                  call s:setf('ruby')
+au BufNewFile,BufRead *.jbuilder		                call s:setf('ruby')
+au BufNewFile,BufRead Puppetfile		                call s:setf('ruby')
+au BufNewFile,BufRead [Bb]uildfile		              call s:setf('ruby')
+au BufNewFile,BufRead Appraisals		                call s:setf('ruby')
+au BufNewFile,BufRead Podfile,*.podspec		          call s:setf('ruby')
+au BufNewFile,BufRead [rR]outefile		              call s:setf('ruby')
+au BufNewFile,BufRead .simplecov		                call s:setf('ruby')
