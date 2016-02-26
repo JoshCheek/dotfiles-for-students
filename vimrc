@@ -41,11 +41,11 @@ nmap <Leader>p orequire "pry"<CR>binding.pry<ESC>;        " Pry insertion
 
 "" ===== Seeing Is Believing =====
 " Assumes you have a Ruby with SiB available in the PATH
-nmap <leader>b :%!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk<CR>
-nmap <leader>n :%!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk --xmpfilter-style<CR>
-nmap <leader>c :%!seeing_is_believing --clean<CR>
-nmap <leader>m A # => <Esc>
-vmap <leader>m :norm A # => <Esc>
+nmap <leader>b :%!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk<CR>;
+nmap <leader>n :%!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk --xmpfilter-style<CR>;
+nmap <leader>c :%!seeing_is_believing --clean<CR>;
+nmap <leader>m A # => <Esc>;
+vmap <leader>m :norm A # => <Esc>;
 
 
 "" =====  easier navigation between split windows =====
@@ -118,6 +118,16 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces() " strip trailing whitespace on save
+
+"" =====  Turn off arrow keys  =====
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+noremap  <Up> <NOP>
+noremap  <Down> <NOP>
+noremap  <Left> <NOP>
+noremap  <Right> <NOP>
 
 "" =====  Tell vim which files are Ruby files  =====
 " Stolen from: https://github.com/vim-ruby/vim-ruby/blob/72f8b21856bac46b7b1a19194f5a3aa1006346bb/ftdetect/ruby.vim
