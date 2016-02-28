@@ -6,6 +6,23 @@ Initial Computer Setup
 The **shell** is a program with a text interface. You work with it by typing commands that it executes.
 
 
+If anyone wants to contribute
+-----------------------------
+
+I'd love to automate this, not sure how other than setting up a VM.
+I do have VirtualBox, and Vagrant installed, but not enough time right
+now to play with it. If you want to contribute it'd be super awesome
+to get a script that can reliably kick all that stuff off and SSH in.
+If you get that much, it's a much smaller matter to try and write a test
+suite to prove that it installs everything correctly. Possibly by using
+something like Puppet or Chef, but I also don't have issue with just sticking
+to things with fewer abstractions. Particularly, the need is for someone
+who has a computer they wish to setup to be able to run a single command
+and the script goes and clones the repo, sets up symlinks, installs everything
+that needs to be installed (eg `brew cask` will now install applications
+in the same wa that `brew` itself installs binaries).
+
+
 Note to Josh from Josh
 ----------------------
 
