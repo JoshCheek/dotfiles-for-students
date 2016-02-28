@@ -41,11 +41,12 @@ vnoremap . :norm.<CR>;                                    " In visual mode, "." 
 nnoremap <Leader>v :set paste<CR>"*p<CR>:set nopaste<CR>; " Paste without being stupid ("*p means to paste on next line (p) from the register (") that represents the clipboard (*))
 nmap <Leader>p orequire "pry"<CR>binding.pry<ESC>;        " Pry insertion
 
+
 "" ===== Seeing Is Believing =====
 " Assumes you have a Ruby with SiB available in the PATH
-nmap <leader>b :%!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk<CR>;
-nmap <leader>n :%!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk --xmpfilter-style<CR>;
-nmap <leader>c :%!seeing_is_believing --clean<CR>;
+nmap <leader>b :%.!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk<CR>;
+nmap <leader>n :%.!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk --xmpfilter-style<CR>;
+nmap <leader>c :%.!seeing_is_believing --clean<CR>;
 nmap <leader>m A # => <Esc>;
 vmap <leader>m :norm A # => <Esc>;
 
