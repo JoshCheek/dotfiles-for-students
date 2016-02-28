@@ -28,8 +28,10 @@ set number          " Show line numbers
 set hlsearch        " Highlight search matches
 
 "" Basic behaviour =====
-set scrolloff=4     " adds top/bottom buffer between cursor and window
-set incsearch       " Incremental searching
+set scrolloff=4        " adds top/bottom buffer between cursor and window
+set incsearch          " Incremental searching
+set clipboard=unnamed  " Use system clipboard (requires a reasonably compiled vim, ie MacVim, not system vim)
+
 
 "" ===== Mappings and keybindings. Note that <Leader> is the backslash by default. =====
 " You can change it, though, as seen here: https://github.com/bling/minivimrc/blob/43d099cc351424c345da0224da83c73b75bce931/vimrc#L20-L21
