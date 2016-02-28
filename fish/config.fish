@@ -1,3 +1,6 @@
+# note: Using "." instead of "source" because some linux installations have a really old fish,
+# that doesn't ship with the "source" function.
+
 # various paths
 set --export PATH $HOME/bin               \
                   $HOME/code/dotfiles/bin \
@@ -16,7 +19,7 @@ end
 
 # Load ruby. Interface is less helpful than rbenv
 # but Brixen says it works with rbx in ways that rbenv's assumptions won't let it
-source /usr/local/share/chruby/chruby.fish
+. /usr/local/share/chruby/chruby.fish
 chruby 2.3.0
 
 # Don't print a greeting when I start the shell
@@ -24,7 +27,7 @@ set --erase fish_greeting
 
 # For configs that I don't want in my public git (ie work stuff and stuff that changes across computers)
 if test -e ~/.config/fish/private_config.fish
-  source   ~/.config/fish/private_config.fish
+  .        ~/.config/fish/private_config.fish
 end
 
 # Have `tree` colour directories yellowish
