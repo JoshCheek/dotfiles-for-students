@@ -1,3 +1,40 @@
-#!/bin/sh
-/usr/local/bin/chruby-exec 2.2.2 -- ruby "$@"
-# /usr/local/bin/chruby-exec 2.1.1 -- ruby "$@"
+#!/bin/bash
+
+ruby_version="$(get_default_ruby)"
+
+# First we try to lock down our SiB to an expected Ruby
+# so that it doesn't switch Rubies and break unexpectedly based on our env
+chruby_exec_path="$(which chruby-exec || echo '/usr/local/bin/chruby-exec')"
+test -n "$chruby_exec_path" &&
+  exec "$chruby_exec_path" "$ruby_version" -- ruby "$@"
+
+
+# If chruby isn't available, but the current environment has SiB in the path,
+# then we'll just do nothing, and assume the inherited environment is correct.
+which -s seeing_is_believing &&
+  exec ruby "$@"
+
+
+# If you're using rvm or rbenv or installed it yourself or something
+# you could edit this section to set that environment up.
+( echo "In script: $0"
+  echo "Could not figure out how to execute Seeing Is Believing"
+  echo ""
+  echo "Possible casues:"
+  echo ""
+  echo "* You may not have installed Ruby (I recommend https://github.com/postmodern/chruby)"
+  echo "  You may be able to get away with using your system Ruby if you set some env vars, ie that's all chruby does"
+  echo ""
+  echo "* You may have installed Ruby using something other than chruby, which I haven't checked for"
+  echo "  In which case, edit this script to detect that option"
+  echo ""
+  echo "* Chruby might not be loaded in bash. There should be a line in ~/.bash_profile, or ~/.bashrc, or ~/.profile"
+  echo "  I don't know which one, because I legit cannot keep them straight. I stuck it in bash_profile for these dotfiles"
+  echo ""
+  echo "* If you're using these dotfiles, and they're right for your system, then you might not have the"
+  echo "  bash_profile symlinked to ~/.bash_profile. If you have a file there, preventing the symlink,"
+  echo "  take the parts of it that you want, and add them to the bash_profile in these dotfiles,"
+  echo "  then delete the one in the home dir and symlink the one from here"
+  echo "  ie this repo is intended for you to make your own and to build off of, so edit it and commit your changes"
+) >&2
+exit 1

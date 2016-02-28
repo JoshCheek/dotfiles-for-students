@@ -17,7 +17,7 @@ end
 # Load ruby. Interface is less helpful than rbenv
 # but Brixen says it works with rbx in ways that rbenv's assumptions won't let it
 source /usr/local/share/chruby/chruby.fish
-chruby 2.2.2
+chruby 2.3.0
 
 # Don't print a greeting when I start the shell
 set --erase fish_greeting

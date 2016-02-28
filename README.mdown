@@ -93,10 +93,10 @@ You can do this once homebrew is done installing chruby and ruby-install.
 This could take a while, you can go install other things while this is going on.
 
 ```
-$ ruby-install ruby 2.2.2
-$ chruby 2.2.2
+$ get_default_ruby | xargs ruby-install ruby
+$ get_default_ruby | xargs chruby
 $ gem install seeing_is_believing -v 3.0.0.beta.6
-$ gem install pry
+$ gem install pry pry-doc mrspec rspec
 ```
 
 

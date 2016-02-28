@@ -1,12 +1,14 @@
 # This file goes in ~/.bash_profile (the tilde is your home directory)
 
 # Environment Variables
-  export EDITOR='atom'                          # Set to your text editor
+  export HOME="${HOME-"$(echo ~)"}"                                     # This gets messed up sometimes, for unknown reasons, which messes chruby up
+  export EDITOR='atom'                                                  # Set to your text editor
   export PATH="/usr/local/bin:$HOME/bin:$HOME/code/dotfiles/bin:$PATH"  # Look for executables in homebrew first
 
 # Load chruby
-  source "/usr/local/share/chruby/chruby.sh"
-  chruby 2.2.2 # Default
+  source "/usr/local/share/chruby/chruby.sh"  # functions
+  source "/usr/local/share/chruby/auto.sh"    # automatically switch when dir contains .ruby-version file
+  chruby "$(get_default_ruby)"
 
 # ALIASES
   # path
